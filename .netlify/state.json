@@ -1,3 +1,20 @@
 {
-	"siteId": "3eae0894-9aaa-496a-adee-89b326452b0f"
+	"siteId": "3eae0894-9aaa-496a-adee-89b326452b0f",
+	"geolocation": {
+		"data": {
+			"city": "Tirupati",
+			"country": {
+				"code": "IN",
+				"name": "India"
+			},
+			"subdivision": {
+				"code": "AP",
+				"name": "Andhra Pradesh"
+			},
+			"timezone": "Asia/Kolkata",
+			"latitude": 13.6409,
+			"longitude": 79.4192
+		},
+		"timestamp": 1710785074480
+	}
 }
