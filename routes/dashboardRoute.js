@@ -1,17 +1,18 @@
-import Router from 'express';
+import { Router } from 'express';
 import verifyToken from '../utils/authToken.js';
 import User from '../models/userModel.js';
 import Note from '../models/notesModel.js';
+
 const router = Router();
 
 router.get('/', async (req, res) => {
-    const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
-
-    if (!token) {
-        return res.status(401).json({ message: 'Access denied. No token provided.' });
-    }
-
     try {
+        const token = req.headers.authorization && req.headers.authorization.split(' ')[1];
+
+        if (!token) {
+            return res.status(401).json({ message: 'Access denied. No token provided.' });
+        }
+
         const decoded = await verifyToken(token);
         const { _id } = decoded;
 
@@ -22,11 +23,12 @@ router.get('/', async (req, res) => {
         }
 
         const { username } = user;
-        const Notes = await Note.find({ userId: _id });
-        return res.status(200).json({ notes: Notes, username });
+        const notes = await Note.find({ userId: _id });
+        return res.status(200).json({ notes, username });
     } catch (error) {
-        return res.status(403).json({ message: 'Invalid token.' });
+        console.error('Error retrieving user notes:', error);
+        return res.status(500).json({ message: 'Internal server error.' });
     }
 });
 
-export default router;
+module.exports = router;

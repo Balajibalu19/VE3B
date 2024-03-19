@@ -1,6 +1,6 @@
-import Router from 'express';
+import { Router } from 'express';
 import User from '../models/userModel.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import CreateToken from '../utils/CreateToken.js';
 
 const router = Router();
@@ -19,7 +19,6 @@ router.post('/', async (req, res) => {
     const token = CreateToken(user);
     res.json({ message: 'User logged in successfully', token });
 
-}
-);
+});
 
-export default router;
+module.exports = router;

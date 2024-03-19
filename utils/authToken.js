@@ -13,4 +13,4 @@ async function verifyToken(token) {
     });
 }
 
-export default verifyToken;
+module.exports = verifyToken;

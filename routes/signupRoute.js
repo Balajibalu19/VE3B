@@ -1,25 +1,33 @@
 import { Router } from 'express';
 import User from '../models/userModel.js';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
+
 const router = Router();
 
 router.post('/', async (req, res) => {
     const { username, email, password } = req.body;
     try {
-        // if user already exists
-        const foundUserEmail = await User.findOne({ email });
-        if (foundUserEmail) {
-            return res.status(400).json({ message: 'User Email already exists' });
+        // Check if user already exists
+        const existingEmail = await User.findOne({ email });
+        if (existingEmail) {
+            return res.status(400).json({ message: 'User with this email already exists' });
         }
-        const foundUsername = await User.findOne({ username });
-        if (foundUsername) {
+
+        const existingUsername = await User.findOne({ username });
+        if (existingUsername) {
             return res.status(400).json({ message: 'Username already exists' });
         }
-        // else hash the password and save the user
-        const hashedPwd = await bcrypt.hash(password, 10);
-        const newUser = new User({ username, email, password: hashedPwd });
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Create a new user
+        const newUser = new User({ username, email, password: hashedPassword });
+
+        // Save the user to the database
         const savedUser = await newUser.save();
 
+        // Respond with success message and user details
         res.status(201).json({ message: 'User signed up successfully', user: savedUser });
     } catch (error) {
         console.error('Error signing up user:', error);
@@ -27,5 +35,4 @@ router.post('/', async (req, res) => {
     }
 });
 
-
-export default router;
+module.exports = router;
