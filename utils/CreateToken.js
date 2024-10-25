@@ -6,4 +6,4 @@ function createToken(user) {
     });
     return token;
 }
-module.exports = createToken;
+export default createToken;

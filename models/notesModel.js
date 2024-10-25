@@ -9,4 +9,4 @@ const notesSchema = new mongoose.Schema({
 const Notes = mongoose.model('Notes', notesSchema);
 
 
-module.exports = Notes;
+export default Notes;
