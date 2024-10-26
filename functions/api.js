@@ -41,7 +41,7 @@
 // export const handler = serverless(app);
 
 
-
+import ServerlessHttp from 'serverless-http';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import mongoose from 'mongoose';
