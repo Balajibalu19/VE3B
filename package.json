@@ -4,13 +4,12 @@
   "type": "module",
   "description": "",
   "main": "index.js",
-  "engines":{
-    "node":"14.x"
+  "engines": {
+    "node": "14.x"
   },
   "scripts": {
-    "start":"node index.js",
-    "test":"echo\"Error:no test specified\" && exit 1"
-    
+    "start": "node index.js",
+    "test": "echo \"Error:no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
@@ -23,16 +22,13 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.18.3",
-    "nodemon":"~2.0.1",
+    "nodemon": "~2.0.1",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.4.0",
     "mongoose": "^8.2.1",
-    "netlify-lambda": "^2.0.15",
-    "serverless-http": "^3.2.0",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
-    "gh-pages": "^6.2.0",
-    "netlify-cli": "^17.37.1"
+    "gh-pages": "^6.2.0"
   }
 }
