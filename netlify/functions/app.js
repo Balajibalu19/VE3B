@@ -21,7 +21,7 @@ const app = express();
 
 app.use(express.json());
 const corsOptions = {
-    origin: 'https://balajibalu19.github.io', // Replace with your frontend URL
+    origin: '*', // Replace with your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],        // Specify allowed methods
     credentials: true,                                // Allow cookies if necessary
   };
