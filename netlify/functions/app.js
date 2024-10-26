@@ -5,10 +5,10 @@ import cookieParser from 'cookie-parser';
 import express from 'express';
 import serverless from 'serverless-http'; // Import serverless-http
 
-import signupRoute from '../routes/signupRoute.js';
-import logInRoute from '../routes/logInRoute.js';
-import dashboardRoute from '../routes/dashboardRoute.js';
-import newNoteRoute from '../routes/newNoteRoute.js';
+import signupRoute from '../../routes/signupRoute.js';
+import logInRoute from '../../routes/logInRoute.js';
+import dashboardRoute from '../../routes/dashboardRoute.js';
+import newNoteRoute from '../../routes/newNoteRoute.js';
 
 dotenv.config();
 
