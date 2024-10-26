@@ -64,7 +64,12 @@ mongoose.connect(process.env.MONGODB_URI)
 const app = express();
 
 app.use(express.json());
-app.use(cors());
+// Allow all origins
+app.use(cors({
+  origin: 'https://balajibalu19.github.io', // Allows all origins
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
+  credentials: true, // Allow credentials if needed
+}));
 app.use(cookieParser());
 
 const router = express.Router();
